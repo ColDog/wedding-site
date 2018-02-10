@@ -14,7 +14,7 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "deploy": "cd build && ../node_modules/.bin/surge --domain bh-wedding.surge.sh"
+    "deploy": "react-scripts-ts build && cd build && surge --domain bh-wedding.surge.sh"
   },
   "devDependencies": {
     "@types/jest": "^22.1.1",
