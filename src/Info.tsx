@@ -13,7 +13,7 @@ const Container = glamorous.main({
 
 const Panels = images.map(url =>
   glamorous.div({
-    width: '100%',
+    width: '2500px',
     height: '100%',
     backgroundImage: `url(${url})`,
     backgroundSize: 'cover',
@@ -42,7 +42,7 @@ const CardContainer = glamorous.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
-  zIndex: 1,
+  zIndex: 15,
 });
 
 const Card = glamorous.div({
@@ -109,11 +109,11 @@ class Info extends React.Component {
     const width = window.screen.width;
 
     if (current) {
-      return { left: 0 };
+      return { left: 0, zIndex: 10 };
     } else if (next) {
-      return { left: width, height: 0 };
+      return { left: width, height: 0, zIndex: 5 };
     } else {
-      return { left: -width };
+      return { left: -width, zIndex: 5 };
     }
   }
 
