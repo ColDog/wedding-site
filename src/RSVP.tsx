@@ -1,53 +1,15 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
 import { airtableUrl, airtableKey } from './config';
+import Input from './components/Input';
+import FormControl from './components/FormControl';
+import Button from './components/Button';
+import Submit from './components/Submit';
 
 const Form = glamorous.form({
   padding: '5px',
   color: 'white',
-  textAlign: 'center',
-});
-
-const Input = glamorous.input({
-  width: '80%',
-  backgroundColor: '#b8c7d6',
-  outline: 'none',
-  border: 'none',
-  marginBottom: '5px',
-  color: '#444',
-  padding: '10px',
-});
-
-const TextArea = glamorous.textarea({
-  width: '80%',
-  backgroundColor: '#b8c7d6',
-  outline: 'none',
-  border: 'none',
-  marginBottom: '5px',
-  color: '#444',
-  padding: '10px',
-  marginTop: '30px',
-});
-
-const Submit = glamorous.button({
-  backgroundColor: '#b8c7d6',
-  outline: 'none',
-  border: 'none',
-  marginBottom: '5px',
-  color: '#444',
-  borderRadius: '10px',
-  padding: '10px',
-  cursor: 'pointer',
-});
-
-const Add = glamorous.button({
-  backgroundColor: '#b8c7d6',
-  outline: 'none',
-  border: 'none',
-  marginBottom: '5px',
-  color: '#444',
-  borderRadius: '10px',
-  padding: '10px',
+  textAlign: 'left',
 });
 
 class RSVP extends React.Component {
@@ -118,38 +80,46 @@ class RSVP extends React.Component {
     const { guests, name, request, error, success, submitted } = this.state;
     return (
       <Form onSubmit={this.handleSubmit.bind(this)}>
-        <h1>RSVP</h1>
-        <Input
-          required={true}
-          placeholder="My Name"
-          value={name}
-          onChange={this.handleUpdateName.bind(this)}
-        />
+        <h1>Please tell us who's coming...</h1>
+        <FormControl>
+          <Input
+            required={true}
+            placeholder="Please write your first and last name"
+            value={name}
+            onChange={this.handleUpdateName.bind(this)}
+          />
+        </FormControl>
 
         {guests.map((guest, idx) =>
-          <Input
-            key={idx}
-            placeholder={`Guest ${idx + 1}`}
-            value={guest}
-            onChange={this.handleUpdateGuest.bind(this, idx)}
-          />
+          <FormControl key={idx}>
+            <Input
+              placeholder={`Guest ${idx + 2}`}
+              value={guest}
+              onChange={this.handleUpdateGuest.bind(this, idx)}
+            />
+          </FormControl>
         )}
-        <Add onClick={this.handleAddGuest.bind(this)}>Add a Guest</Add>
 
-        <TextArea
-          placeholder="What will get you dancing?"
-          rows={3}
-          value={request}
-          onChange={this.handleRequest.bind(this)}
-        />
+        <FormControl style={{textAlign: 'center'}}>
+          <Button onClick={this.handleAddGuest.bind(this)}>Add a Guest</Button>
+        </FormControl>
 
-        <div>
+        <FormControl style={{marginTop: '100px'}}>
+          <h1>What will get you dancing?</h1>
+          <Input
+            placeholder="Please add your favourite song"
+            value={request}
+            onChange={this.handleRequest.bind(this)}
+          />
+        </FormControl>
+
+        <FormControl style={{textAlign: 'center'}}>
           {error && <p>{error}</p>}
           {success && <p>{success}</p>}
           {!submitted &&
             <Submit disabled={submitted}>Submit</Submit>
           }
-        </div>
+        </FormControl>
       </Form>
     );
   }

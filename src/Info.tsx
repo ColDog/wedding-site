@@ -2,9 +2,7 @@ import * as React from 'react';
 import glamorous from 'glamorous';
 import { images } from './config';
 import RSVP from './RSVP';
-import Venue from './Venue';
-import Gallery from './Gallery';
-import Hotel from './Hotel';
+import { BigDay, GettingHere, WhereToStay, Gallery } from './Panels';
 
 const Container = glamorous.main({
   width: '100%',
@@ -13,7 +11,7 @@ const Container = glamorous.main({
 
 const Panels = images.map(url =>
   glamorous.div({
-    width: '2500px',
+    width: '2000px',
     height: '100%',
     backgroundImage: `url(${url})`,
     backgroundSize: 'cover',
@@ -29,16 +27,16 @@ const Panels = images.map(url =>
 
 const CardComponents = {
   'RSVP': RSVP,
-  'The Big Day': Venue,
-  'Where to Stay': Hotel,
+  'The Big Day': BigDay,
+  'Getting Here': GettingHere,
+  'Where to Stay': WhereToStay,
   'Gallery': Gallery,
 };
 
 const CardContainer = glamorous.div({
   width: '100%',
-  minHeight: '800px',
+  minHeight: '900px',
   position: 'relative',
-  marginTop: '50px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
@@ -46,9 +44,10 @@ const CardContainer = glamorous.div({
 });
 
 const Card = glamorous.div({
+  backgroundColor: 'rgba(139, 167, 194, 0.8)',
   minHeight: '800px',
-  minWidth: '600px',
-  maxWidth: '600px',
+  minWidth: '700px',
+  maxWidth: '700px',
   flex: 2,
   borderRadius: '15px',
   marginRight: '200px',
@@ -57,25 +56,22 @@ const Card = glamorous.div({
 });
 
 const Tab = glamorous.a({
-  backgroundColor: '#8BA7C2',
-  borderRadius: '5px',
   textAlign: 'center',
   textDecoration: 'none',
-  padding: '10px',
+  padding: '28px',
   marginRight: '5px',
-  marginBottom: 0,
   color: 'white',
+  fontSize: '1.2em',
 });
 
 const CardBody = glamorous.div({
-  backgroundColor: '#8BA7C2',
   margin: 0,
   padding: '10px',
   minHeight: '700px',
 });
 
 const CardTabs = glamorous.div({
-  margin: 0,
+  paddingBottom: '10px',
 });
 
 class Info extends React.Component {
@@ -106,7 +102,7 @@ class Info extends React.Component {
     const { selected } = this.state;
     const current = idx === selected;
     const next = idx === selected + 1 || (idx === 0 && selected + 1 >= Panels.length);
-    const width = window.screen.width;
+    const width = 2000;
 
     if (current) {
       return { left: 0, zIndex: 10 };
@@ -133,7 +129,7 @@ class Info extends React.Component {
               {Object.keys(CardComponents).map(key =>
                 <Tab
                   key={key}
-                  href={`#`}
+                  href={`#${key.replace(' ', '-')}`}
                   onClick={this.handleTabClick.bind(this, key)}
                 >
                   {key}

@@ -1,28 +1,30 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
 import { text, password } from './config';
+import Submit from './components/Submit';
+import Input from './components/Input';
+import FormControl from './components/FormControl';
 
 const CardAction = glamorous.div({
-  backgroundColor: '#b56600',
   height: '350px',
-  minWidth: '500px',
-  flex: 1,
+  minWidth: '400px',
+  maxWidth: '500px',
   borderRadius: '3px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  padding: '20px',
 });
 
 const CardContainer = glamorous.div({
   width: '100%',
-  minHeight: '350px',
-  position: 'relative',
-  marginTop: '150px',
-  display: 'flex',
-  alignItems: 'center',
-});
-
-const CardBanner = glamorous.div({
-  backgroundColor: '#af7223',
-  height: '200px',
-  flex: 1,
+  height: '100%',
+  backgroundImage: `url(${require('./images/landing.jpg')})`,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  opacity: 0.7,
+  margin: 0,
+  padding: 0,
+  paddingTop: '150px',
 });
 
 const Title = glamorous.h1({
@@ -41,22 +43,8 @@ const Form = glamorous.form({
   paddingTop: '80px',
 });
 
-const FormControl = glamorous.div({});
-
 const Label = glamorous.p({
   color: 'white',
-});
-
-const Button = glamorous.button({
-  marginTop: '20px',
-  backgroundColor: '#eee',
-});
-
-const Input = glamorous.input({
-  border: 'none',
-  background: 'none',
-  borderBottom: 'thick solid white',
-  borderBottomStyle: 'dotted',
 });
 
 class Landing extends React.Component<any, any> {
@@ -79,7 +67,6 @@ class Landing extends React.Component<any, any> {
   render() {
     return (
       <CardContainer id="Landing">
-        <CardBanner />
         <CardAction>
           <Title>{text.title}</Title>
           <Date>{text.date}</Date>
@@ -96,13 +83,10 @@ class Landing extends React.Component<any, any> {
               />
             </FormControl>
             <FormControl>
-              <Button>
-                RSVP
-            </Button>
+              <Submit>Enter</Submit>
             </FormControl>
           </Form>
         </CardAction>
-        <CardBanner />
       </CardContainer>
     );
   }

@@ -3,12 +3,14 @@ export const text = {
   date: 'June 16, 2018',
 };
 
-export const password = 'foobar';
+export const password = 'test';
 
 export const images = [
-  require('./images/0025.jpg'),
-  require('./images/0043.jpg'),
-  require('./images/0067.jpg'),
+  require('./images/back_1.jpg'),
+  require('./images/back_2.jpg'),
+  require('./images/back_3.jpg'),
+  require('./images/back_4.jpg'),
+  require('./images/back_5.jpg'),
 ];
 
 export const airtableUrl = 'https://api.airtable.com/v0/appliOwpTRwqtHuyi/Guests';

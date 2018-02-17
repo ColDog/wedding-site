@@ -1,6 +1,6 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
-// import Landing from './Landing';
+import Landing from './Landing';
 import Info from './Info';
 
 const Main = glamorous.main({
@@ -21,8 +21,8 @@ class App extends React.Component {
 
     return (
       <Main>
-        {// !authenticated &&
-          // <Landing onAuthenticated={this.handleAuthenticated} />
+        {!authenticated &&
+          <Landing onAuthenticated={this.handleAuthenticated} />
         }
         {authenticated &&
           <Info />
