@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import App from './App';
 
 import './vendor/normalize.css';
-import './styles/typography.css';
+import './styles/global.css';
 
 ReactDOM.render(
   <App />,

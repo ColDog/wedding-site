@@ -15,6 +15,12 @@ const CardAction = glamorous.div({
   padding: '20px',
 });
 
+const CardWrapper = glamorous.div({
+  backgroundColor: '#8e6226',
+  width: '100%',
+  height: '100%',
+});
+
 const CardContainer = glamorous.div({
   width: '100%',
   height: '100%',
@@ -66,33 +72,35 @@ class Landing extends React.Component<any, any> {
 
   render() {
     return (
-      <CardContainer id="Landing">
-        <CardAction>
-          <Title>{text.title}</Title>
-          <Date>{text.date}</Date>
-          <Form onSubmit={this.handleAuthenticate}>
-            <FormControl>
-              {this.state.warning ?
-                <Label>{this.state.warning}</Label> :
-                <Label>Enter Password</Label>
-              }
-              <Input
-                type="password"
-                value={this.state.password}
-                onChange={this.handlePasswordChange}
-              />
-            </FormControl>
-            <FormControl>
-              <Submit>Enter</Submit>
-            </FormControl>
-          </Form>
-        </CardAction>
+      <CardWrapper id="Landing">
+        <CardContainer>
+          <CardAction>
+            <Title>{text.title}</Title>
+            <Date>{text.date}</Date>
+            <Form onSubmit={this.handleAuthenticate}>
+              <FormControl>
+                {this.state.warning ?
+                  <Label>{this.state.warning}</Label> :
+                  <Label>Enter Password</Label>
+                }
+                <Input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handlePasswordChange}
+                />
+              </FormControl>
+              <FormControl>
+                <Submit>Enter</Submit>
+              </FormControl>
+            </Form>
+          </CardAction>
 
-        {/* Preload images. */}
-        {images.map((url, key) =>
-          <img key={key} style={{display: 'none'}} src={url} />
-        )}
-      </CardContainer>
+          {/* Preload images. */}
+          {images.map((url, key) =>
+            <img key={key} style={{display: 'none'}} src={url} />
+          )}
+        </CardContainer>
+      </CardWrapper>
     );
   }
 }
