@@ -9,11 +9,10 @@ const Main = glamorous.main({
 });
 
 class App extends React.Component {
-  state = { authenticated: true, warning: null, password: '', id: null };
+  state = { authenticated: false, warning: null, password: '', id: null };
 
   handleAuthenticated = () => {
     this.setState({ authenticated: true });
-    // localStorage.setItem('key', );
   }
 
   render() {

@@ -11,7 +11,7 @@ const Container = glamorous.main({
 
 const Panels = images.map(url =>
   glamorous.div({
-    width: '2000px',
+    width: '100%',
     height: '100%',
     backgroundImage: `url(${url})`,
     backgroundSize: 'cover',
@@ -21,7 +21,7 @@ const Panels = images.map(url =>
     top: 0,
     left: 0,
     zIndex: 0,
-    transition: 'left 3s linear',
+    transition: 'opacity 1s linear',
   })
 );
 
@@ -78,39 +78,16 @@ class Info extends React.Component {
   state = { selected: 0, tab: 'RSVP' };
   cancel = 0;
 
-  componentDidMount() {
-    this.cancel = setInterval(this.poller.bind(this), 5000);
+  handleTabClick(tab: string, selected: number) {
+    this.setState({ tab, selected });
   }
 
-  componentWillUnmount() {
-    clearInterval(this.cancel);
-  }
-
-  handleTabClick(tab: string) { this.setState({ tab: tab }); }
-
-  poller() {
-    let { selected } = this.state;
-    if (selected + 1 >= Panels.length) {
-      selected = 0;
-    } else {
-      selected += 1;
-    }
-    this.setState({ selected: selected });
-  }
-
-  styles(idx: number) {
+  styles(idx: number): any {
     const { selected } = this.state;
-    const current = idx === selected;
-    const next = idx === selected + 1 || (idx === 0 && selected + 1 >= Panels.length);
-    const width = 2000;
-
-    if (current) {
-      return { left: 0, zIndex: 10 };
-    } else if (next) {
-      return { left: width, height: 0, zIndex: 5 };
-    } else {
-      return { left: -width, zIndex: 5 };
+    if (idx === selected) {
+      return { opacity: 1 };
     }
+    return { opacity: 0 };
   }
 
   render() {
@@ -126,11 +103,11 @@ class Info extends React.Component {
         <CardContainer>
           <Card>
             <CardTabs>
-              {Object.keys(CardComponents).map(key =>
+              {Object.keys(CardComponents).map((key, idx) =>
                 <Tab
                   key={key}
                   href={`#${key.replace(' ', '-')}`}
-                  onClick={this.handleTabClick.bind(this, key)}
+                  onClick={this.handleTabClick.bind(this, key, idx)}
                 >
                   {key}
                 </Tab>

@@ -53,7 +53,10 @@ export const BigDay: React.SFC = () => (
       </Tr>
       </tbody>
     </Table>
-    <Text>Please make sure to bring your dancing shoes, we can’t wait to celebrate with you!</Text>
+    <Text>
+      Please make sure to bring your dancing shoes, we can’t wait to celebrate
+      with you!
+    </Text>
   </Panel>
 );
 
@@ -82,9 +85,21 @@ export const GettingHere: React.SFC = () => (
 
 export const WhereToStay: React.SFC = () => (
   <Panel title={'Where to Stay'}>
-    <Text>If you would like to book an accomodation near our wedding location we
-       have secured exclusive rates at these hotel locations:</Text>
-    <Text>Please make sure you have planned a safe way to get to your next destination.</Text>
+    <Text>
+        If you would like to book an accomodation near our wedding location we
+        have secured exclusive rates at these hotel locations:
+    </Text>
+    <Text>
+      You must book by May 15th to receive the prefferred rate of $129 CDN plus
+      tax.
+    </Text>
+    <Text>
+      To book call 1 (800) 780-7234 and use group number 1391.
+    </Text>
+    <Text>
+      Please make sure you have planned a safe way to get to your next
+      destination.
+    </Text>
   </Panel>
 );
 

@@ -114,11 +114,9 @@ class RSVP extends React.Component {
         </FormControl>
 
         <FormControl style={{textAlign: 'center'}}>
-          {error && <p>{error}</p>}
-          {success && <p>{success}</p>}
-          {!submitted &&
-            <Submit disabled={submitted}>Submit</Submit>
-          }
+          <Submit disabled={submitted}>
+            {error ? error : success ? success : 'Submit'}
+          </Submit>
         </FormControl>
       </Form>
     );
