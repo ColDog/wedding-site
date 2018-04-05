@@ -86,8 +86,8 @@ export const GettingHere: React.SFC = () => (
 export const WhereToStay: React.SFC = () => (
   <Panel title={'Where to Stay'}>
     <Text>
-        If you would like to book an accomodation near our wedding location we
-        have secured exclusive rates at these hotel locations:
+        If you would like to book an accomodation nearby we have secured an
+        exclusive rate at the Best Western Plus Regency Inn & Conference Centre.
     </Text>
     <Text>
       You must book by May 15th to receive the prefferred rate of $129 CDN plus
@@ -106,5 +106,13 @@ export const WhereToStay: React.SFC = () => (
 export const Gallery: React.SFC = () => (
   <Panel title={'Gallery'}>
     <Text>Check back here after the wedding to see some of our favorite moments.</Text>
+  </Panel>
+);
+
+export const Registry: React.SFC = () => (
+  <Panel title={'Registry'}>
+    <Text>
+      Check back here for the registry.
+    </Text>
   </Panel>
 );

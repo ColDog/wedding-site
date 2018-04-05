@@ -2,7 +2,13 @@ import * as React from 'react';
 import glamorous from 'glamorous';
 import { images } from './config';
 import RSVP from './RSVP';
-import { BigDay, GettingHere, WhereToStay, Gallery } from './Panels';
+import {
+  BigDay,
+  GettingHere,
+  WhereToStay,
+  Registry,
+  Gallery,
+} from './Panels';
 
 const Container = glamorous.main({
   width: '100%',
@@ -30,6 +36,7 @@ const CardComponents = {
   'The Big Day': BigDay,
   'Getting Here': GettingHere,
   'Where to Stay': WhereToStay,
+  'Registry': Registry,
   'Gallery': Gallery,
 };
 
@@ -58,7 +65,7 @@ const Card = glamorous.div({
 const Tab = glamorous.a({
   textAlign: 'center',
   textDecoration: 'none',
-  padding: '28px',
+  padding: '20px',
   marginRight: '5px',
   color: 'white',
   fontSize: '1.2em',

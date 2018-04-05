@@ -1,6 +1,6 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
-import { text, password } from './config';
+import { text, password, images } from './config';
 import Submit from './components/Submit';
 import Input from './components/Input';
 import FormControl from './components/FormControl';
@@ -87,6 +87,11 @@ class Landing extends React.Component<any, any> {
             </FormControl>
           </Form>
         </CardAction>
+
+        {/* Preload images. */}
+        {images.map((url, key) =>
+          <img key={key} style={{display: 'none'}} src={url} />
+        )}
       </CardContainer>
     );
   }
