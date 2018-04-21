@@ -23,7 +23,7 @@ const Panels = images.map(url =>
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     left: 0,
     zIndex: 0,

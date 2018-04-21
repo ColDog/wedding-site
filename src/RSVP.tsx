@@ -81,7 +81,7 @@ class RSVP extends React.Component {
     return (
       <Form onSubmit={this.handleSubmit.bind(this)}>
         <h1 style={{marginBottom: 0}}>Please tell us who's coming...</h1>
-        <h2 style={{marginTop: 0, fontSize: '2em'}}>Press submit at the bottom of the page</h2>
+        <p style={{marginTop: 0, fontSize: '2em'}}>Press submit at the bottom of the page</p>
         <FormControl>
           <Input
             required={true}
