@@ -80,7 +80,8 @@ class RSVP extends React.Component {
     const { guests, name, request, error, success, submitted } = this.state;
     return (
       <Form onSubmit={this.handleSubmit.bind(this)}>
-        <h1>Please tell us who's coming...</h1>
+        <h1 style={{marginBottom: 0}}>Please tell us who's coming...</h1>
+        <h2 style={{marginTop: 0, fontSize: '2em'}}>Press submit at the bottom of the page</h2>
         <FormControl>
           <Input
             required={true}
@@ -103,6 +104,10 @@ class RSVP extends React.Component {
         <FormControl style={{textAlign: 'center'}}>
           <Button onClick={this.handleAddGuest.bind(this)}>Add a Guest</Button>
         </FormControl>
+
+        <h2 style={{textAlign: 'center', fontSize: '2em'}}>
+          Please confirm attendees as per invitation
+        </h2>
 
         <FormControl style={{marginTop: '100px'}}>
           <h1>What will get you dancing?</h1>

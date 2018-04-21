@@ -112,7 +112,25 @@ export const Gallery: React.SFC = () => (
 export const Registry: React.SFC = () => (
   <Panel title={'Registry'}>
     <Text>
-      Check back here for the registry.
+      Rebecca Adams and Hari Tamil Selven
     </Text>
+
+    <h2>
+      <a href="http://giftregistry.hbc.com/grworks/prj/generic_online/jsp/common/marcole_grw.jsp?rid=4">
+        The Bay
+      </a>
+    </h2>
+    <Text>Registry Number: 400138002301</Text>
+
+    <br />
+
+    <h2>
+      <a
+        href="https://www.bedbathandbeyond.ca/store/gift-registry-search?_requestid=1349354#searchKeywordById=545801790"
+      >
+        Bed Bath and Beyond
+      </a>
+    </h2>
+    <Text>Registry Number: 545801790</Text>
   </Panel>
 );
